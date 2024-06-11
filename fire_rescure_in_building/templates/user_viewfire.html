@@ -1,0 +1,45 @@
+{% include 'userheader.html'%}
+<header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(/static/images/img_bg_1.jfif);">
+		<div class="overlay"></div>
+		<div class="gtco-container">
+			<div class="row">
+				<div class="col-md-12 col-md-offset-0 text-center">
+					<div class="display-t">
+						<div class="display-tc animate-box" data-animate-effect="fadeIn">
+<center>
+	<h1>view fire request</h1>
+	<table class="table" style="width:500px;color: white">
+		<tr>
+			<th>sino</th>
+			<th>owner</th>
+			<th>description</th>
+			<th>date</th>
+			<th>time</th>
+			<th>status</th>
+		</tr>
+		{% for row in data['req']%}
+		<tr>
+			<td>{{loop.index}}</td>
+			<td>{{row['owner']}}</td>
+			<td>{{row['description']}}</td>
+			<td>{{row['date']}}</td>
+			<td>{{row['time']}}</td>
+			{% if row['status']=="accept"%}
+		
+			<td><a class="btn btn-success" href="user_viewbuilding?bid={{row['building_id']}}">View Building</a></td>
+			<td><a class="btn btn-success" href="user_viewimage?bid={{row['building_id']}}">View Images</a></td>
+			{% else %}
+				<td>{{row['status']}}</td>
+				{% endif %}
+		</tr>
+		{% endfor %}
+	</table>
+</center>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+{% include 'footer.html'%}			

@@ -1,0 +1,46 @@
+{% include 'buildingheader.html'%}
+<header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(/static/images/img_bg_1.jfif);">
+		<div class="overlay"></div>
+		<div class="gtco-container">
+			<div class="row">
+				<div class="col-md-12 col-md-offset-0 text-center">
+					<div class="display-t">
+						<div class="display-tc animate-box" data-animate-effect="fadeIn">
+<center>
+	<h1>upload image</h1>
+	<form method="post" enctype="multipart/form-data">
+		<table class="table" style="width:500px;color: white">
+			<tr>
+				<th>image</th>
+				<td><input type="file" required="" class="form-control" name="imgg"></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"><input type="submit" name="add" value="submit" class="btn btn-success"></td>
+			</tr>
+		</table>
+	</form>
+</center>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+<center>
+<h1>view image</h1>
+<form>
+	<table class="table" style="width:500px">
+		<tr>
+			<th>sino</th>
+			
+			<th>image</th>
+		</tr>
+		{% for row in data['img']%}
+		<tr>
+			<td>{{loop.index}}</td>
+			<td><img src="/{{row['image']}}" height="100" width="100"></td>
+		</tr>
+		{% endfor %}
+	</table></form></center>
+{% include 'footer.html'%}

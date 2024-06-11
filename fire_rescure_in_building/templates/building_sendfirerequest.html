@@ -1,0 +1,64 @@
+{% include 'buildingheader.html'%}
+<header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(/static/images/img_bg_1.jfif);">
+		<div class="overlay"></div>
+		<div class="gtco-container">
+			<div class="row">
+				<div class="col-md-12 col-md-offset-0 text-center">
+					<div class="display-t">
+						<div class="display-tc animate-box" data-animate-effect="fadeIn">
+<center>
+<h1>sent request</h1>
+<form method="post">
+	<table class="table" style="width:500px;color: white">
+		<tr>
+			<th>description</th>
+			<td><input type="text" required="" class="form-control" name="des"></td>
+		</tr>
+		<tr>
+			<th>date</th>
+			<td><input type="date" required="" class="form-control" name="date"></td>
+		</tr>
+		<tr>
+			<th>time</th>
+			<td><input type="time" required="" class="form-control" name="time"></td>
+		</tr>
+		
+			<td align="center" colspan="2"><input type="submit" name="request" value="submit" class="btn btn-success"></td>
+		</tr>
+	</table>
+</form>
+</center>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+<center>
+	<h1>view request</h1>
+	<form>
+		<table class="table" style="width: 500px">
+			<tr>
+				<th>Slno</th>
+				<th>owner</th>
+				<th>description</th>
+				<th>date</th>
+				<th>time</th>
+				<th>status</th>
+			</tr>
+			{% for row in data['req']%}
+           <tr>
+           	<td>{{loop.index}}</td>
+           	<td>{{row['owner']}}</td>
+           	<td>{{row['description']}}</td>
+           	<td>{{row['date']}}</td>
+           	<td>{{row['time']}}</td>
+           	<td>{{row['status']}}</td>
+           	<td><a class="btn btn-success" href="building_viewpositions?rid={{row['request_id']}}">View Position</a></td>
+        </tr>
+        {% endfor %}
+		</table>
+	</form>
+</center>
+{% include 'footer.html'%}

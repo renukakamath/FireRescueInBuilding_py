@@ -1,0 +1,41 @@
+{% include 'adminheader.html'%}
+<header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(/static/images/img_bg_1.jfif);">
+		<div class="overlay"></div>
+		<div class="gtco-container">
+			<div class="row">
+				<div class="col-md-12 col-md-offset-0 text-center">
+					<div class="display-t">
+						<div class="display-tc animate-box" data-animate-effect="fadeIn">
+<center>
+	<h1>view building</h1>
+<form>
+	<table class="table" style="width:500px ;color: white">
+		<tr>
+			<th>sino</th>
+			<th>owner</th>
+			<th>place</th>
+			<th>phone</th>
+			<th>email</th>
+			<th>latitude</th>
+			<th>longitude</th>
+		</tr>
+		{% for row in data['bu']%}
+		<tr>
+			<td>{{loop.index}}</td>
+			<td>{{row['owner']}}</td>
+			<td>{{row['place']}}</td>
+			<td>{{row['phone']}}</td>
+			<td>{{row['email']}}</td>
+		    <td>{{row['latitude']}}</td>
+		    <td>{{row['longitude']}}</td>
+		</tr>
+		{% endfor %}
+	</table></form></center>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+{% include 'footer.html'%}
